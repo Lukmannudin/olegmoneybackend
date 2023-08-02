@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package olegmoney;
+
+option go_package = "github.com/olegmoney";
+
+message UserRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message UserResponse {
+  string name = 1;
+  string email = 2;
+}
+
+service UserService {
+  rpc SignUp (UserRequest) returns (UserResponse);
+}

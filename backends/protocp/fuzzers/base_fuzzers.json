@@ -1,0 +1,26 @@
+[
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzBigDecimal"
+  },
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzDecimalE8"
+  },
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzScale"
+  },
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzTime"
+  },
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzDuration"
+  },
+  {
+    "fuzzer_package": "bitx/backends/protocp/fuzzers",
+    "fuzzer_function": "FuzzInt"
+  }
+]
