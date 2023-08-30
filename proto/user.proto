@@ -14,7 +14,3 @@ message UserResponse {
   string name = 1;
   string email = 2;
 }
-
-service UserService {
-  rpc SignUp (UserRequest) returns (UserResponse);
-}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package olegmoney;
+
+option go_package = "github.com/olegmoney";
+
+import "user.proto";
+import "annotations.proto";
+
+service UserService {
+  rpc SignUp (UserRequest) returns (UserResponse){
+    option (google.api.http) = {
+      post: "/v1/signup"
+      body: "*"
+    };
+  };
+}
