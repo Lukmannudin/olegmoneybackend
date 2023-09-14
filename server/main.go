@@ -1,13 +1,14 @@
 package main
 
 import (
-	pb "github.com/olegmoney/proto"
-	"google.golang.org/grpc"
 	"log"
 	"net"
+
+	pb "github.com/olegmoney/proto"
+	"google.golang.org/grpc"
 )
 
-var addr = "localhost:50051"
+var addr = "localhost:8080"
 
 type Server struct {
 	pb.UserServiceServer
