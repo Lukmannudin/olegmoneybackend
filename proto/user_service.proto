@@ -8,10 +8,5 @@ import "user.proto";
 import "annotations.proto";
 
 service UserService {
-  rpc SignUp (UserRequest) returns (UserResponse){
-    option (google.api.http) = {
-      post: "/v1/signup"
-      body: "*"
-    };
-  };
+  rpc SignUp (UserRequest) returns (UserResponse){}
 }
