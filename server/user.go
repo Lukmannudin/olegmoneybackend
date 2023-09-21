@@ -14,3 +14,12 @@ func (s *Server) SignUp(ctx context.Context, in *pb.UserRequest) (*pb.UserRespon
 		Email: "oleg@gmail.com",
 	}, nil
 }
+
+func (s *Server) SignIn(ctx context.Context, in *pb.UserRequest) (*pb.UserResponse, error) {
+	log.Printf("SignIn was invoked %v\n", in)
+
+	return &pb.UserResponse{
+		Name:  "Oleg",
+		Email: "oleg@gmail.com",
+	}, nil
+}

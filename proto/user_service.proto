@@ -9,4 +9,5 @@ import "annotations.proto";
 
 service UserService {
   rpc SignUp (UserRequest) returns (UserResponse){}
+  rpc SignIn (UserRequest) returns (UserResponse){}
 }
