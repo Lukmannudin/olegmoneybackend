@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"log"
+	"os"
 
 	"github.com/golang-jwt/jwt"
 	pb "github.com/olegmoney/proto"
@@ -62,7 +63,7 @@ func (s *Server) SignIn(ctx context.Context, payload *pb.UserRequest) (*pb.UserR
 	}
 
 	sign := jwt.New(jwt.GetSigningMethod("HS256"))
-	token, err := sign.SignedString([]byte("secret"))
+	token, err := sign.SignedString([]byte(os.Getenv("JWT_SECRET")))
 	if err != nil {
 		return nil, errors.New("error when generate token")
 
