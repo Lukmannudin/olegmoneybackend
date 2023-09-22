@@ -14,3 +14,7 @@ message UserResponse {
   string name = 1;
   string email = 2;
 }
+
+message UserResponseLogin {
+  string token = 1;
+}
