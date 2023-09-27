@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
 	SignUp(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	SignIn(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
+	SignIn(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponseLogin, error)
 }
 
 type userServiceClient struct {
@@ -48,8 +48,8 @@ func (c *userServiceClient) SignUp(ctx context.Context, in *UserRequest, opts ..
 	return out, nil
 }
 
-func (c *userServiceClient) SignIn(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
+func (c *userServiceClient) SignIn(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponseLogin, error) {
+	out := new(UserResponseLogin)
 	err := c.cc.Invoke(ctx, UserService_SignIn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (c *userServiceClient) SignIn(ctx context.Context, in *UserRequest, opts ..
 // for forward compatibility
 type UserServiceServer interface {
 	SignUp(context.Context, *UserRequest) (*UserResponse, error)
-	SignIn(context.Context, *UserRequest) (*UserResponse, error)
+	SignIn(context.Context, *UserRequest) (*UserResponseLogin, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -73,7 +73,7 @@ type UnimplementedUserServiceServer struct {
 func (UnimplementedUserServiceServer) SignUp(context.Context, *UserRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignUp not implemented")
 }
-func (UnimplementedUserServiceServer) SignIn(context.Context, *UserRequest) (*UserResponse, error) {
+func (UnimplementedUserServiceServer) SignIn(context.Context, *UserRequest) (*UserResponseLogin, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}

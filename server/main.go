@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var addr = ":8080"
+var addr = ":9090"
 
 type Server struct {
 	pb.UserServiceServer
